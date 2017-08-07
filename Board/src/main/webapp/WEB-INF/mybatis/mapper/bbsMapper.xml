@@ -8,4 +8,28 @@
 	bbs_seq.NEXTVAL, #{name},#{pwd},#{subject},#{content},#{ipAddr})
 </insert>
 
-</mapper>
+
+<select id="listBoard" parameterType="com.sp.bbs.Board" resultType="com.sp.bbs.Board">
+SELECT 
+    NUM
+    ,PAGE_NUM
+    ,CONTENT
+    ,SUBJECT
+    ,CREATED
+        FROM(SELECT
+            NUM
+            ,FLOOR ((ROWNUM -1) /5+1) AS PAGE_NUM 
+            ,SUBJECT
+            ,CONTENT
+            ,IPADDR
+            ,CREATED
+            FROM(SELECT 
+                 * 
+                 FROM BBS
+                 ORDER BY NUM DESC
+                )T
+            )TT
+WHERE PAGE_NUM = 1 
+</select>
+
+</mapper>	

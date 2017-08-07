@@ -30,9 +30,14 @@ public int insertBoard(Board dto) {
 
 @Override
 public List<Board> listBoard(Map<String, Object> map) {
-	// TODO Auto-generated method stub
-	return null;
-}
+	List<Board> list=null;
+	try{
+		list=dao.getListData("bbs.listBoard", map);
+		} catch(Exception e) {
+			//
+		}
+		return list;
+	}	
 
 @Override
 public int dataCount(Map<String, Object> map) {

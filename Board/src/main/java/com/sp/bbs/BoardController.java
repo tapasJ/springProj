@@ -1,5 +1,9 @@
 package com.sp.bbs;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +36,18 @@ public class BoardController {
 		dto.setIpAddr(req.getRemoteAddr());		
 		int result = service.insertBoard(dto);	
 		System.out.println("결과 는"+result);
-		return "redirect:/bbs/created";
+		return "redirect:/bbs/list";
 	}
+	
+	@RequestMapping(value="/bbs/list")
+	public String list(Board dto, HttpServletRequest req, Model model) throws Exception {
+		
+		Map<String, Object> map=new HashMap<>();
+		List<Board> list=service.listBoard(map);
+		model.addAttribute("list",list);
+		return "bbs/list";
+	}
+
+	
 		
 }
