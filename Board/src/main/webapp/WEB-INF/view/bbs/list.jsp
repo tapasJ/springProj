@@ -20,6 +20,7 @@
 <table style="width: 700px; margin: 30px auto 0px; border-spacing: 0px;">
 <tr height="40">
 	<td align="left" class="title">
+		게시판
 	</td>
 </tr>
 </table>
@@ -56,12 +57,13 @@
  
   <c:forEach var="dto" items="${list}">
   <tr align="center" bgcolor="#ffffff" height="30"> 
-      <td align="center">${dto.num}</td>
+      <td align="center">${dto.listNum}</td>
       <td align="left" style="padding-left: 10px;">
           <a href="${articleUrl}&num=${dto.num}">${dto.subject}</a>
       </td>
-      <td align="center">${dto.subject}</td>
+      <td align="center">${dto.name}</td>
       <td align="center">${dto.created}</td>
+      <td align="center">${dto.hitCount}</td>
   </tr>
   <tr><td height="1" colspan="5" bgcolor="#e4e4e4"></td></tr> 
   </c:forEach> 
@@ -71,15 +73,18 @@
 <table style="width: 700px; margin: 0px auto; border-spacing: 0px;">
    <tr height="35">
 	<td align="center">
-<%--         <c:if test="${dataCount==0 }">
+        <c:if test="${dataCount==0 }">
                    등록된 게시물이 없습니다.
          </c:if>
         <c:if test="${dataCount!=0 }">
            ${paging}
-         </c:if> --%>
+         </c:if>
 	</td>
    </tr>
 </table>
+
+</body>
+</html>
 
 </body>
 </html>

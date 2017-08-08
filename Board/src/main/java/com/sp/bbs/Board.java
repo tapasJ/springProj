@@ -1,8 +1,8 @@
-package com.sp.bbs; 
+package com.sp.bbs;
 
 public class Board {
 	private int listNum, num;
-	private String name,pwd,subject,content,ipAddr,created;
+	private String name, pwd, subject, content, ipAddr, created;
 	private int hitCount;
 	
 	public int getListNum() {
@@ -60,5 +60,3 @@ public class Board {
 		this.hitCount = hitCount;
 	}
 }
-	
-	
